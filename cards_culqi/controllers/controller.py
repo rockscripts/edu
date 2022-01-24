@@ -114,11 +114,8 @@ class culqi_controller(http.Controller):
         _logger.warning(params)
 
         res_customer = customer.create({
-                                            #Culqi obliga a poner una dirección
-                                            #"address": str(params['customer']['street'])[:99],
-                                            #"address_city": state_name,
-                                            "address": 'Dirección para Culqi',
-                                            "address_city": 'Nombre de estado',
+                                            "address":str(params['customer']['street'])[:99],
+                                            "address_city": state_name,
                                             "country_code": params['customer']['country_code'],
                                             "email": params['customer']['email'],
                                             "first_name": str(customer_name)[:50],
@@ -203,11 +200,8 @@ class culqi_controller(http.Controller):
                                         "description": params['culqi_preference']['description'],
                                         "email":  params['customer']['email'],
                                         "first_name": customer_name,
-                                        #Culqui obliga a poner una dirección
-                                        #"address": params['customer']['street'],
-                                        #"address_city": state_name,
-                                        "address": 'Dirección para Culqi',
-                                        "address_city": 'Nombre de estado',
+                                        "address": params['customer']['street'],
+                                        "address_city": state_name,
                                         "phone_number": params['customer']['mobile'] if (params['customer']['mobile']) else params['customer']['phone'],
                                         "country_code": params['customer']['country_code'],
                                         "installments": 0,
